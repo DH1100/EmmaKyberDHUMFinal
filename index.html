@@ -25,6 +25,20 @@ header a {
   color: #375;
 }
 
+body {
+  background-color: #fff9f4; /* or any light color you like */
+  color: #2e2e2e;            /* ensures text is readable */
+  font-family: 'Georgia', serif;
+  font-size: 1.05em;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, tw-story {
+  background-color: #fff9f4 !important;
+  color: #2e2e2e;
+}
+
 /* Secret Entry Base Style */
 .secret-entry {
   font-style: italic;
@@ -297,6 +311,12 @@ A blank journal rests in your hands. As you open it, the paper hums.
 
 [[🌿 Choose a Season-&gt;SeasonSelect]]
 
+&lt;span class=&quot;journal-button&quot;&gt;
+(link: &quot;📓 Journal&quot;)[
+  (set: $returnTo to (passage:))
+  (goto: &quot;Journal&quot;)
+]
+&lt;/span&gt;
 (set: $returnTo to &quot;Start&quot;)
 (set: $lemonBalmUsed to false)
 (set: $nettleTest to &quot;&quot;)
@@ -306,7 +326,9 @@ A blank journal rests in your hands. As you open it, the paper hums.
 (set: $elderberryUsed to false)
 (set: $valerianUsed to false)
 (set: $juniperUsed to false)
-(set: $nettleChosen to (not: $nettleTest is &quot;&quot;))
+
+(set: $nettleChosen to not ($nettleTest is &quot;&quot;))
+
 (set: $allHerbsUsed to 
   $lemonBalmUsed and 
   $nettleChosen and 
@@ -317,12 +339,6 @@ A blank journal rests in your hands. As you open it, the paper hums.
   $valerianUsed and 
   $juniperUsed)
 
-&lt;span class=&quot;journal-button&quot;&gt;
-(link: &quot;📓 Journal&quot;)[
-  (set: $returnTo to (passage:))
-  (goto: &quot;Journal&quot;)
-]
-&lt;/span&gt;
 </tw-passagedata><tw-passagedata pid="2" name="SeasonSelect" tags="" position="1300,500" size="100,100">&lt;img src=&quot;Images/Grove.jpg&quot; alt=&quot;The Grove&quot; class=&quot;background-image&quot;&gt;
 
 The mentors stand in a circle around the Grove.  
